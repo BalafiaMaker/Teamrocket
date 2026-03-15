@@ -15,7 +15,7 @@ font = ImageFont.load_default()
 
 # Mostrar mensaje
 with canvas(device) as draw:
-    draw.text((5, 20), "Hola", font=font, fill=255)
+    draw.text((5, 20), "Funcionando", font=font, fill=255)
     draw.text((5, 35), "CanSat", font=font, fill=255)
     draw.text((5, 50), "Team Rocket", font=font, fill=255)
 

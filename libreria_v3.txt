@@ -1,0 +1,53 @@
+Qué mejoras aporta esta versión
+
+1️⃣ Si un sensor falla el programa no se detiene
+
+2️⃣ Si un sensor falla repetidamente
+→ se reinicializa automáticamente
+
+3️⃣ Si varios sensores fallan
+→ se reinicia el bus I²C
+
+4️⃣ El GNSS se lee cada 2 segundos
+→ evita saturar el bus
+
+5️⃣ Se añade un pequeño retardo entre sensores
+→ mayor estabilidad
+
+Resultado esperado en tu Raspberry
+
+Al iniciar
+
+INFOcansat_sensorsSensores activos ['bme280', 'bno055', 'gnss']
+
+Si aparece un fallo temporal
+
+WARNINGbno055 error 1
+WARNINGbno055 error 2
+
+Si persiste
+
+WARNINGReinicializando bno055
+Recomendación importante para vuestro CanSat
+
+Para una misión robusta yo también añadiría
+
+watchdog del programa
+
+telemetría de estado de sensores en LoRa
+
+contador de errores
+
+Eso permite al jurado ver que el sistema es fiable y tolerante a fallos, algo que puntúa mucho en la competición.
+
+Si quieres, puedo también prepararte la versión profesional completa del software del CanSat (~800 líneas) que incluye
+
+sistema de paquetes LoRa numerados
+
+CRC de telemetría
+
+logger científico
+
+control de estado del satélite
+
+interfaz OLED avanzada.
