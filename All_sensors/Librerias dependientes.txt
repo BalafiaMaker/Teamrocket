@@ -1,0 +1,12 @@
+Librerias dependientes:
+pip install adafruit-blinka adafruit-circuitpython-bme280 adafruit-circuitpython-bno055 adafruit-circuitpython-ads1x15 smbus2
+
+Archivos necesarios: Asegúrate de que GNSSAndRTC.py (tu librería del GPS) esté en el mismo directorio.
+
+Direcciones I2C: Si tus sensores tienen direcciones diferentes, ajústalas en las llamadas (address=...).
+
+Manejo de errores: Si un sensor falla, el SensorManager sigue funcionando con los demás.
+
+Rendimiento: La librería está optimizada para Raspberry Pi Zero. Las lecturas son rápidas y el uso de memoria es mínimo.
+
+Ampliación: Para añadir un nuevo sensor, solo tienes que crear una nueva clase que herede de SensorBase e implementar init(), read() y get_data(). Luego, añádelo al SensorManager.

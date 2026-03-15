@@ -1,0 +1,16 @@
+Explicación breve del funcionamiento del programa
+Este programa calibra un sensor de humedad conectado a través de un ADC ADS1115 a una Raspberry Pi Zero 2W:
+
+Inicialización: Configura la comunicación I2C con el ADS1115 en los pines GPIO2 (SDA) y GPIO3 (SCL)
+
+Calibración en seco: Toma 10 muestras del sensor en suelo seco y calcula el promedio
+
+Calibración en agua: Toma 10 muestras del sensor sumergido en agua y calcula el promedio
+
+Cálculo de rango: Determina la diferencia entre ambos valores
+
+Guardado: Almacena los valores de calibración junto con la fecha y hora en un archivo JSON
+
+Visualización: Muestra un resumen de los valores calibrados
+
+El archivo calibracion_sensor.json generado contiene los límites superior e inferior necesarios para convertir lecturas futuras en porcentajes de humedad.

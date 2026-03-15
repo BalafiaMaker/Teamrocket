@@ -1,0 +1,21 @@
+Este programa lee un sensor de humedad del suelo conectado a un ADC ADS1115 mediante I2C en una Raspberry Pi Zero. Ya esta el sensor calibrado previamente.
+
+El programa funciona de la siguiente manera:
+
+Configura la comunicación I2C con el ADS1115 (conversor analógico-digital)
+
+Carga los valores de calibración desde un archivo JSON (valores en seco y en agua)
+
+Lee continuamente el valor del sensor desde el canal A0
+
+Convierte la lectura a porcentaje de humedad usando los valores de calibración
+
+Muestra en pantalla los tres valores importantes:
+
+Valor digital crudo (0-32767)
+
+Voltaje medido (0-4.096V)
+
+Porcentaje de humedad (0-100%)
+
+Repite la medición cada segundo en un bucle infinito

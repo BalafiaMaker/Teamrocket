@@ -1,0 +1,17 @@
+RASPBERRY PI ZERO 2W          MÓDULO DFR1103 (SENSOR HUMEDAD)
+-------------------          --------------------------------
+                         
+     GPIO2 (Pin 3) ─────────── SDA (Serial Data)
+     
+     GPIO3 (Pin 5) ─────────── SCL (Serial Clock)
+     
+        3.3V (Pin 1) ───────── VCC (Alimentación)
+     
+        GND (Pin 6) ────────── GND (Tierra)
+
+NOTAS IMPORTANTES:
+- El DFR1103 ya incluye el ADC ADS1115 integrado
+- Utiliza comunicación I2C, por lo que solo necesita 4 cables
+- La dirección I2C por defecto del ADS1115 es 0x48
+- Si tienes múltiples dispositivos I2C, puedes cambiar la dirección mediante los jumpers del módulo
+- El sensor de humedad en sí se conecta al conector de 3 pines del DFR1103 (señal analógica)

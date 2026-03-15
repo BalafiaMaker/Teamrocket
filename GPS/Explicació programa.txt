@@ -1,0 +1,63 @@
+2. Explicación del funcionamiento
+El programa funciona en 3 fases principales:
+
+Fase 1 - Inicialización (setup):
+
+Configura la comunicación I2C con el módulo DFR1103
+
+Verifica que el módulo está conectado correctamente
+
+Espera hasta obtener una señal GPS válida
+
+Fase 2 - Configuración inicial (una sola vez):
+
+Cuando detecta el primer GPS válido, obtiene fecha y hora
+
+Convierte UTC a hora local de Ibiza (UTC+2 para horario de verano)
+
+Muestra la fecha y hora de inicio
+
+Imprime la cabecera CSV con la fecha de inicio
+
+Fase 3 - Bucle principal (cada segundo):
+
+Lee los datos del GPS (latitud, longitud, altitud, satélites)
+
+Calcula el tiempo relativo desde el inicio del programa
+
+Formatea los datos en CSV con 2 decimales para tiempo y 6 para coordenadas
+
+Incrementa el contador de paquetes
+
+Si pierde señal, muestra "No encuentra GPS"
+
+=======================================================================================
+3. Esquema de conexiones
+======================================================================================
+
+RASPBERRY PI ZERO 2W          MÓDULO DFR1103 (GNSS+RTC)
+====================          ============================
+
+Pin 1 (3.3V)       <----->    VCC (pin 3.3V del módulo)
+Pin 3 (GPIO2 - SDA) <----->    SDA
+Pin 5 (GPIO3 - SCL) <----->    SCL
+Pin 6 (GND)         <----->    GND
+
+                    IMPORTANTE:
+                    - Usar resistencias pull-up de 4.7kΩ en SDA y SCL
+                    - La Raspberry ya tiene pull-ups internos, pero 
+                      es recomendable añadir externas para estabilidad
+                    - Mantener cables lo más cortos posible (<20cm)
+                    - Evitar cruzar con cables de antena LoRa
+
+
+Colores recomendados para cables:
+
+Rojo: VCC (3.3V)
+
+Negro: GND
+
+Verde: SDA
+
+Azul: SCL
+
